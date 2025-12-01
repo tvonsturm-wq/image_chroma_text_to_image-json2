@@ -1,0 +1,205 @@
+{
+  "input": {
+    "workflow": {
+      "298": {
+        "inputs": {
+          "samples": [
+            "747",
+            0
+          ],
+          "vae": [
+            "710",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "694": {
+        "inputs": {
+          "value": 3.5,
+          "model": [
+            "701",
+            0
+          ],
+          "positive": [
+            "748",
+            0
+          ],
+          "negative": [
+            "749",
+            0
+          ]
+        },
+        "class_type": "CFGGuider",
+        "_meta": {
+          "title": "CFGGuider"
+        }
+      },
+      "700": {
+        "inputs": {
+          "text": "euler"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "KSamplerSelect"
+        }
+      },
+      "701": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "731",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "Flow Shift"
+        }
+      },
+      "710": {
+        "inputs": {
+          "filename": "ae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "718": {
+        "inputs": {
+          "value": 798004928304404
+        },
+        "class_type": "RandomNoise",
+        "_meta": {
+          "title": "SEED"
+        }
+      },
+      "731": {
+        "inputs": {
+          "filename": "Chroma1-HD-fp8_scaled_rev2.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "733": {
+        "inputs": {
+          "filename": "t5xxl_fp8_e4m3fn_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "734": {
+        "inputs": {
+          "text": "beta",
+          "model": [
+            "701",
+            0
+          ]
+        },
+        "class_type": "BasicScheduler",
+        "_meta": {
+          "title": "BasicScheduler"
+        }
+      },
+      "737": {
+        "inputs": {
+          "width": 1024,
+          "height": 1024,
+          "batch_size": 1
+        },
+        "class_type": "EmptySD3LatentImage",
+        "_meta": {
+          "title": "EmptySD3LatentImage"
+        }
+      },
+      "740": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "298",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "741": {
+        "inputs": {
+          "value": 0,
+          "clip": [
+            "733",
+            0
+          ]
+        },
+        "class_type": "T5TokenizerOptions",
+        "_meta": {
+          "title": "T5TokenizerOptions"
+        }
+      },
+      "747": {
+        "inputs": {
+          "noise": [
+            "718",
+            0
+          ],
+          "guider": [
+            "694",
+            0
+          ],
+          "sampler": [
+            "700",
+            0
+          ],
+          "sigmas": [
+            "734",
+            0
+          ],
+          "latent_image": [
+            "737",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "SamplerCustomAdvanced"
+        }
+      },
+      "748": {
+        "inputs": {
+          "text": "This is a nature documentary close-up photograph of the right side of the face of a tiger. The photograph is centered on it's highly detailed and speckled eye surrounded by intricately detailed fur. Overlaid at the center of the image is a title text that says \"CHROMA1-HD\" in a large white 3D letters. Amateur photography. Unfiltered. Real life. Natural light. Subtle shadows. ",
+          "clip": [
+            "741",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Positive Prompt)"
+        }
+      },
+      "749": {
+        "inputs": {
+          "text": "This low quality greyscale unfinished sketch is inaccurate and flawed. The image is very blurred and lacks detail with excessive chromatic aberrations and artifacts. The image is overly saturated with excessive bloom. It has a toony aesthetic with bold outlines and flat colors. ",
+          "clip": [
+            "741",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Negative Prompt)"
+        }
+      }
+    }
+  }
+}
